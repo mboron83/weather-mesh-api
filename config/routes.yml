@@ -1,0 +1,7 @@
+home:
+  path: /
+  defaults: { _controller: 'Weather\AppController::homeAction' }
+
+api:
+  prefix: /api
+  resource: api.yml

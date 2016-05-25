@@ -1,0 +1,7 @@
+api.sensor:
+  path:     /sensor
+  defaults: { _controller: 'Weather\ApiController::sensorAction' }
+
+api.sensor.add:
+  path:     /sensor/add
+  defaults: { _controller: 'Weather\ApiController::sensorAddAction' }
