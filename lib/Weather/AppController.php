@@ -2,12 +2,12 @@
 
 namespace Weather;
 
-use Symfony\Component\HttpFoundation\Response;
+use Silex\Application;
 
 class AppController
 {
-    public function homeAction()
+    public function homeAction(Application $app)
     {
-        return new Response("AppController::homeAction");
+        return $app['twig']->render('homepage.html.twig', array());
     }
 }

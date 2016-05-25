@@ -5,3 +5,9 @@ api.sensor:
 api.sensor.add:
   path:     /sensor/add
   defaults: { _controller: 'Weather\ApiController::sensorAddAction' }
+
+
+api.temperature.new:
+  path:     /temperature/new
+  defaults: { _controller: 'Weather\ApiController::temperatureNewAction' }
+#  methods:  [POST]

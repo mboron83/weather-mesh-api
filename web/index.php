@@ -21,7 +21,7 @@ $app->register(new DoctrineServiceProvider(), array(
         'host'      => 'localhost',
         'dbname'    => 'weather',
         'user'      => 'weather',
-        'password'  => 's3cret',
+        'password'  => 'Eaxoh2ligh',
         'charset'   => 'utf8',
     ),
 ));
