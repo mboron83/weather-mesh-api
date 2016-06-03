@@ -9,6 +9,7 @@ USE weather;
 
 DROP TABLE IF EXISTS temperature;
 DROP TABLE IF EXISTS pressure;
+DROP TABLE IF EXISTS humidity;
 DROP TABLE IF EXISTS sensor;
 DROP TABLE IF EXISTS api_manager;
 
@@ -24,6 +25,16 @@ ENGINE = MYISAM;
 
 /**********************************************************************************************************************/
 CREATE TABLE pressure (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  sensor_id VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_polish_ci NULL DEFAULT NULL,
+  data DECIMAL (5,2) NOT NULL,
+  created_at DATETIME
+)
+DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci
+ENGINE = MYISAM;
+
+/**********************************************************************************************************************/
+CREATE TABLE humidity (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   sensor_id VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_polish_ci NULL DEFAULT NULL,
   data DECIMAL (5,2) NOT NULL,

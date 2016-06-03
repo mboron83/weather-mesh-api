@@ -10,4 +10,14 @@ api.sensor.add:
 api.temperature.new:
   path:     /temperature/new
   defaults: { _controller: 'Weather\ApiController::temperatureNewAction' }
-#  methods:  [POST]
+  methods:  [POST]
+
+api.pressure.new:
+  path:     /pressure/new
+  defaults: { _controller: 'Weather\ApiController::pressureNewAction' }
+  methods:  [POST]
+
+api.humidity.new:
+  path:     /humidity/new
+  defaults: { _controller: 'Weather\ApiController::humidityNewAction' }
+  methods:  [POST]
