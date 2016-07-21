@@ -1,6 +1,10 @@
 home:
   path: /
   defaults: { _controller: 'Weather\AppController::homeAction' }
+  
+chart:  
+  path: /chart
+  defaults: { _controller: 'Weather\AppController::chartAction' }
 
 api:
   prefix: /api
