@@ -3,7 +3,7 @@ home:
   defaults: { _controller: 'Weather\AppController::homeAction' }
   
 chart:  
-  path: /chart
+  path: /chart/{sensor}
   defaults: { _controller: 'Weather\AppController::chartAction' }
 
 api:

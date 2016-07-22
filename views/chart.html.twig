@@ -20,6 +20,7 @@
 <script>
 var chartData = generateChartData();
 
+
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
@@ -32,7 +33,7 @@ var chart = AmCharts.makeChart("chartdiv", {
     "graphs": [{
         "id": "g1",
         "fillAlphas": 0.4,
-        "valueField": "visits",
+        "valueField": "value",
          "balloonText": "<div style='margin:5px; font-size:19px;'>Visits:<b>[[value]]</b></div>"
     }],
     "chartScrollbar": {
@@ -63,27 +64,16 @@ var chart = AmCharts.makeChart("chartdiv", {
     }
 });
 
-
-
-// generate some random data, quite different range
 function generateChartData() {
+    var temperatures = {{ temperature|raw }};
     var chartData = [];
-    // current date
-    var firstDate = new Date();
-    // now set 500 minutes back
-    firstDate.setMinutes(firstDate.getDate() - 1000);
 
-    // and generate 500 data items
-    for (var i = 0; i < 500; i++) {
-        var newDate = new Date(firstDate);
-        // each time we add one minute
-        newDate.setMinutes(newDate.getMinutes() + i);
-        // some random number
-        var visits = Math.round(Math.random() * 40 + 10 + i + Math.random() * i / 5);
-        // add data item to the array
+    for (i in temperatures)
+    {
+        var newDate = new Date(temperatures[i].created_at);
         chartData.push({
             date: newDate,
-            visits: visits
+            value: parseFloat(temperatures[i].data)
         });
     }
     return chartData;

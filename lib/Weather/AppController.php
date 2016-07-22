@@ -11,11 +11,11 @@ class AppController
         return $app['twig']->render('homepage.html.twig', array());
     }
     
-    public function chartAction(Application $app)
+    public function chartAction(Application $app, $sensor)
     {
-        $sql = "SELECT * FROM temperature ORDER BY id DESC LIMIT 100";
-        $temp = $app['db']->fetchAssoc($sql, array());
-        print_r($temp);
-        return $app['twig']->render('chart.html.twig', array());
+        $last24 = date('Y-m-d H:i:s', time()-24*60*60);
+        $sql = "SELECT data, created_at FROM temperature WHERE sensor_id=? AND created_at>'$last24' ORDER BY id ASC";
+        $temp = $app['db']->fetchAll($sql, array($sensor));
+        return $app['twig']->render('chart.html.twig', array('temperature' => json_encode($temp)));
     }    
 }
