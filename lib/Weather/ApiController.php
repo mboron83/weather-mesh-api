@@ -60,7 +60,7 @@ class ApiController
 
             $app['db']->insert('humidity', $humidity);
 
-            return new Response("OK " . $app['db']->lastInsertId());
+            return new Response("OK");
         }
 
         return new Response("Method Not Allowed");
