@@ -28,13 +28,18 @@ class ApiController
     {
         if ($request->isMethod(Request::METHOD_POST)) {
             $date = new \DateTime();
-            $temperature = array(
-                'sensor_id'  => $request->get('sensor'),
-                'data'       => $request->get('value'),
-                'created_at' => $date->format('Y-m-d H:i:s')
-            );
+            $sql = "SELECT data FROM temperature WHERE sensor_id=? ORDER BY created_at DESC LIMIT 1";
+            $last_val = $app['db']->fetchColumn($sql, array($request->get('sensor')), 0);
 
-            $app['db']->insert('temperature', $temperature);
+            if ($last_val != $request->get('value')) {           
+                $temperature = array(
+                    'sensor_id'  => $request->get('sensor'),
+                    'data'       => $request->get('value'),
+                    'created_at' => $date->format('Y-m-d H:i:s')
+                );
+
+               $app['db']->insert('temperature', $temperature);
+            }
 
             return new Response("OK");
         }

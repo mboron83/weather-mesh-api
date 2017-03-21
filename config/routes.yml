@@ -6,6 +6,14 @@ chart:
   path: /chart/{sensor}
   defaults: { _controller: 'Weather\AppController::chartAction' }
 
+current_temperature:
+  path: /temperature/now/{sensor}
+  defaults: { _controller: 'Weather\AppController::currentTemperatureAction' }
+
+list:
+  path: /sensor/list
+  defaults: { _controller: 'Weather\AppController::listAction' }
+
 api:
   prefix: /api
   resource: api.yml

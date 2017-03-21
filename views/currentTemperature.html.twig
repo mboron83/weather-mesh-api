@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Charts</title>
+        <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- amCharts javascript sources -->
+        <style type="text/css">
+            #chartdiv {
+                width: 100%;
+                height: 600px;
+                background-color: #FFFFFF;
+            }
+        </style>
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="https://cdn.amcharts.com/lib/3/gauge.js"></script>
+		<!-- amCharts javascript code -->
+		<script type="text/javascript">
+			AmCharts.makeChart("chartdiv",
+				{
+					"type": "gauge",
+					"marginBottom": 20,
+					"marginTop": 40,
+					"startDuration": 0,
+					"fontSize": 11,
+					"theme": "default",
+					"arrows": [
+						{
+							"id": "GaugeArrow-1",
+							"value": {{current_temperature}}
+						}
+					],
+					"axes": [
+						{
+							"bottomText": "{{current_temperature}} ℃",
+                                                        "bottomTextFontSize": 22,
+							"bottomTextYOffset": -20,
+                            "startValue" : -15,
+							"endValue": 35,
+							"id": "GaugeAxis-1",
+							"valueInterval": 1,
+							"bands": [
+								{
+									"alpha": 0.7,
+									"color": "#3281FF",
+                                    "startValue": -15,
+									"endValue": -5,
+									"id": "GaugeBand-1"
+								},
+                                {
+                                    "alpha": 0.7,
+                                    "color": "#99C0FF",
+                                    "startValue": -5,
+                                    "endValue": 0,
+                                    "id": "GaugeBand-2"
+                                },
+                                {
+                                    "alpha": 0.7,
+                                    "color": "#8CCE6B",
+                                    "startValue": 0,
+                                    "endValue": 15,
+                                    "id": "GaugeBand-3"
+                                },
+								{
+									"alpha": 0.7,
+									"color": "#ffac29",
+                                    "startValue": 15,
+									"endValue": 25,
+									"id": "GaugeBand-4"
+								},
+								{
+									"alpha": 0.7,
+									"color": "#ea3838",
+                                    "startValue": 25,
+									"endValue": 35,
+									"id": "GaugeBand-5"
+								}
+							]
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"titles": []
+				}
+			);
+		</script>
+	</head>
+	<body>
+		<div id="chartdiv"></div>
+	</body>
+</html>
+
