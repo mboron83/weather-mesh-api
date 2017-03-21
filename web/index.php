@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Routing\RouteCollection;
 
 require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../config/local.php';
 
 $app = new Application();
 $app->register(new TwigServiceProvider(), array(
@@ -16,14 +17,7 @@ $app->register(new TwigServiceProvider(), array(
 ));
 
 $app->register(new DoctrineServiceProvider(), array(
-    'db.options' => array(
-        'driver'    => 'pdo_mysql',
-        'host'      => 'localhost',
-        'dbname'    => 'weather',
-        'user'      => 'weather',
-        'password'  => 'Eaxoh2ligh',
-        'charset'   => 'utf8',
-    ),
+    'db.options' => $db_conn_param 
 ));
 
 $app['debug'] = true;

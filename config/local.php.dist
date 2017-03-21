@@ -1,0 +1,12 @@
+<?php
+
+$db_conn_param = array(
+    'driver'    => 'pdo_mysql',
+    'host'      => 'localhost',
+    'port'      => '3306',
+    'dbname'    => 'weather',
+    'user'      => 'weather',
+    'password'  => 'secret',
+    'charset'   => 'utf8',
+);
+
